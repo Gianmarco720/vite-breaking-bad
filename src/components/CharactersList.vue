@@ -23,3 +23,11 @@ export default {
         </div>
     </section>
 </template>
+
+<style lang="scss" scoped>
+@use '../assets/scss/partials/variables' as *;
+
+.characters {
+    background-color: $bb-light;
+}
+</style>
