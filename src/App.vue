@@ -20,12 +20,12 @@ export default {
     callApi(url) {
       axios.get(url)
         .then(response => {
-          console.log(response);
-          store.characters = response.data
+          console.log(response.data);
+          this.store.characters = response.data
         })
         .catch(err => {
           console.error(err.message);
-          store.error = err.message
+          this.store.error = err.message
         })
     }
   },

@@ -10,6 +10,12 @@ export default {
 <template>
     <main>
         <div class="container">
+            <div class="filter">
+                <select>
+                    <option value="breaking_bad">Breaking Bad</option>
+                    <option value="better_call_saul">Better Call Saul</option>
+                </select>
+            </div>
             <div class="found_char">
                 <h3>Found 62 characters</h3>
             </div>
@@ -20,6 +26,14 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables' as *;
+
+.filter {
+    select {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border-radius: 0.25rem;
+    }
+}
 
 .found_char {
     background-color: $bb-dark;
