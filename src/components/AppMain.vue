@@ -1,21 +1,17 @@
 <script>
 import CharactersList from './CharactersList.vue';
+import CategorySelector from './CategorySelector.vue';
 
 export default {
     name: "AppMain",
-    components: { CharactersList }
+    components: { CharactersList, CategorySelector },
 }
 </script>
 
 <template>
     <main>
         <div class="container">
-            <div class="filter">
-                <select>
-                    <option value="breaking_bad">Breaking Bad</option>
-                    <option value="better_call_saul">Better Call Saul</option>
-                </select>
-            </div>
+            <CategorySelector />
             <div class="found_char">
                 <h3>Found 62 characters</h3>
             </div>
