@@ -29,6 +29,11 @@ export default {
                     console.log(err);
                 })
         }
+    },
+    computed: {
+        totalResults() {
+            return this.store.characters.length
+        }
     }
 }
 </script>
@@ -38,7 +43,7 @@ export default {
         <div class="container">
             <CategorySelector @searchData="searchCategory" />
             <div class="found_char">
-                <h3>Found 62 characters</h3>
+                <h3 v-if="store.characters != null">Found {{ totalResults }} characters</h3>
             </div>
             <CharactersList />
         </div>
