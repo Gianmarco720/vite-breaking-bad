@@ -5,7 +5,7 @@ export default {
     name: "CategorySelector",
     data() {
         return {
-            categoryName: '',
+            store
         }
     }
 }
@@ -14,9 +14,10 @@ export default {
 <template>
     <main>
         <div class="filter">
-            <select>
-                <option value="breaking_bad">Breaking Bad</option>
-                <option value="better_call_saul">Better Call Saul</option>
+            <select v-model="store.categoryName" @change="$emit('searchData')">
+                <option value="" disabled selected hidden>Choose a category</option>
+                <option value="Breaking Bad">Breaking Bad</option>
+                <option value="Better Call Saul">Better Call Saul</option>
             </select>
         </div>
     </main>

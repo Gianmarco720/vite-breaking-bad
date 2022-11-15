@@ -1,17 +1,42 @@
 <script>
 import CharactersList from './CharactersList.vue';
 import CategorySelector from './CategorySelector.vue';
+import { store } from '../store.js';
+import axios from 'axios';
 
 export default {
     name: "AppMain",
     components: { CharactersList, CategorySelector },
+    data() {
+        return {
+            store
+        }
+    },
+    methods: {
+        searchCategory() {
+            console.log('Changing in', this.store.categoryName);
+            console.log((this.store.categoryName));
+            const categoryName = this.store.categoryName;
+            const url = `${this.store.API_URL}?category=${categoryName}`;
+            console.log(url);
+
+            axios.get(url)
+                .then(resp => {
+                    console.log(resp);
+                    this.store.characters = resp.data.results
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+    }
 }
 </script>
 
 <template>
     <main>
         <div class="container">
-            <CategorySelector />
+            <CategorySelector @searchData="searchCategory" />
             <div class="found_char">
                 <h3>Found 62 characters</h3>
             </div>
