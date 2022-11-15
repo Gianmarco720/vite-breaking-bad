@@ -22,8 +22,8 @@ export default {
 
             axios.get(url)
                 .then(resp => {
+                    this.store.characters = resp.data
                     console.log(resp);
-                    this.store.characters = resp.data.results
                 })
                 .catch(err => {
                     console.log(err);
